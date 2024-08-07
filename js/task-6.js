@@ -9,17 +9,21 @@ const buttonDestroy = document.querySelector('button[data-destroy]')
 const boxes = document.querySelector('#boxes')
 
 function createBoxes(amount) {
-  boxes.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  // boxes.innerHTML = '';
   let size = 30
   for (let i = 0; i < amount; i++) {
     const div = document.createElement('div');
     div.style.width = `${size}px`;
     div.style.height = `${size}px`
     div.style.backgroundColor = getRandomHexColor();
-    boxes.appendChild(div);
+    fragment.appendChild(div)
+    //   boxes.appendChild(div);
     size += 10;
   }
 }
+boxes.innerHTML = '';
+boxes.appendChild(fragment);
 
 buttonCreate.addEventListener('click', () => {
   const amount = Number(input.value);
