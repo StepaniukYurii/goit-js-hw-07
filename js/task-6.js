@@ -21,9 +21,10 @@ function createBoxes(amount) {
     //   boxes.appendChild(div);
     size += 10;
   }
+  boxes.innerHTML = '';
+  boxes.appendChild(fragment);
 }
-boxes.innerHTML = '';
-boxes.appendChild(fragment);
+
 
 buttonCreate.addEventListener('click', () => {
   const amount = Number(input.value);
